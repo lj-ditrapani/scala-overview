@@ -23,7 +23,8 @@ class ListSpec extends Spec {
 
       it("applies function to each element in list") {
         val list2 = list.map(_ * 2)
-        list2.head should === (2)
+        list2.size should === (3)
+        list2.toString should === ("Lst( 2 4 6 )")
       }
     }
 
