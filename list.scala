@@ -21,6 +21,11 @@ sealed abstract class Lst[+A] {
     reduce("Lst( ")((acc, i) => s"${acc}${i} ") + ")"
 }
 
+object Lst {
+  def apply[A](seq: A*): Lst[A] =
+    seq.reverse.foldLeft(Empty: Lst[A])((acc, e) => Cell(e, acc))
+}
+
 final case class Cell[A](head: A, tail: Lst[A]) extends Lst[A] {
   override val isEmpty = false
 }

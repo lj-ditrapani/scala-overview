@@ -2,7 +2,7 @@ package info.ditrapani.overview
 
 class ListSpec extends Spec {
   describe("Lst") {
-    val list: Lst[Int] = Cell(1, Cell(2, Cell(3, Empty)))
+    val list: Lst[Int] = Lst(1, 2, 3)
 
     it("can be empty") {
       val e: Lst[Int] = Empty
@@ -62,14 +62,19 @@ class ListSpec extends Spec {
   }
 
   describe("Lst of chars") {
-    val list: Lst[Char] =
-      Cell('s', Cell('c', Cell('a', Cell('l', Cell('a', Empty)))))
+    val list: Lst[Char] = Lst('s', 'c', 'a', 'l', 'a')
 
     it("still works") {
       list.size should === (5)
       list.toString should === ("Lst( s c a l a )")
       list.reverse.toString should === ("Lst( a l a c s )")
       list.map(_.toInt - 96).toString should === ("Lst( 19 3 1 12 1 )")
+    }
+  }
+
+  describe("Lst.apply") {
+    it("creates a list") {
+      Lst(1, 2, 3).toString should === ("Lst( 1 2 3 )")
     }
   }
 }
