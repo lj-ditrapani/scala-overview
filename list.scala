@@ -5,38 +5,20 @@ import scala.annotation.tailrec
 sealed abstract class Lst {
   def isEmpty: Boolean
 
-  def map(f: Int => Int): Lst = reverse.mapIter(Empty(), f)
-
-  def mapIter(acc: Lst, f: Int => Int): Lst = this match {
-    case Empty() => acc
-    case Cell(h, t) => t.mapIter(Cell(f(h), acc), f)
-  }
+  def map(f: Int => Int): Lst =
+    reverse.reduce(Empty(): Lst)((acc, e) => Cell(f(e), acc))
 
   @tailrec def reduce[B](zero: B)(f: (B, Int) => B): B = this match {
     case Empty() => zero
     case Cell(h, t) => t.reduce(f(zero, h))(f)
   }
 
-  def reverse: Lst = reverseIter(Empty())
+  def reverse: Lst = reduce(Empty(): Lst)((acc, e) => Cell(e, acc))
 
-  @tailrec def reverseIter(acc: Lst): Lst = this match {
-    case Empty() => acc
-    case Cell(h, t) => t.reverseIter(Cell(h, acc))
-  }
+  def size: Int = reduce(0)((acc, i) => acc + 1)
 
-  def size: Int = sizeIter(0)
-
-  @tailrec private def sizeIter(n: Int): Int = this match {
-    case Empty() => n
-    case Cell(h, t) => t.sizeIter(n + 1)
-  }
-
-  override def toString(): String = toStringIter("Lst( ")
-
-  @tailrec def toStringIter(prefix: String): String = this match {
-    case Empty() => s"${prefix})"
-    case Cell(h, t) => t.toStringIter(s"${prefix}${h} ")
-  }
+  override def toString(): String =
+    reduce("Lst( ")((acc, i) => s"${acc}${i} ") + ")"
 }
 
 final case class Cell(head: Int, tail: Lst) extends Lst {
