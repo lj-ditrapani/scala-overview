@@ -2,6 +2,7 @@ Scala Overview
 ==============
 
 This repo has 10 numbered branches.
+
 1. Current branch = 1
 2. Checkout current branch, talk about the code, run the tests.
 3. Current branch = Current branch + 1
@@ -109,7 +110,7 @@ tests
 
 7-refactor
 ----------
-We-write in terms of reduce
+Re-write in terms of reduce
 
 
 8-type-parameters-2
