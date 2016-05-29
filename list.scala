@@ -2,60 +2,47 @@ package info.ditrapani.overview
 
 import scala.annotation.tailrec
 
-// Called List in standard library
 sealed abstract class Lst {
-  def head: Int
-
-  def tail: Lst
-
   def isEmpty: Boolean
 
-  def map(f: Int => Int): Lst
+  def map(f: Int => Int): Lst = reverse.mapIter(Empty(), f)
 
-  @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int = {
-    this match {
-      case x: Empty => zero
-      case x: Cell => tail.reduce(f(zero, head))(f)
-    }
+  def mapIter(acc: Lst, f: Int => Int): Lst = this match {
+    case Empty() => acc
+    case Cell(h, t) => t.mapIter(Cell(f(h), acc), f)
+  }
+
+  @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int = this match {
+    case Empty() => zero
+    case Cell(h, t) => t.reduce(f(zero, h))(f)
+  }
+
+  def reverse: Lst = reverseIter(Empty())
+
+  @tailrec def reverseIter(acc: Lst): Lst = this match {
+    case Empty() => acc
+    case Cell(h, t) => t.reverseIter(Cell(h, acc))
   }
 
   def size: Int = sizeIter(0)
 
-  @tailrec private def sizeIter(n: Int): Int = {
-    this match {
-      case x: Empty => n
-      case x: Cell => tail.sizeIter(n + 1)
-    }
+  @tailrec private def sizeIter(n: Int): Int = this match {
+    case Empty() => n
+    case Cell(h, t) => t.sizeIter(n + 1)
   }
 
   override def toString(): String = toStringIter("Lst( ")
 
-  def toStringIter(prefix: String): String
+  @tailrec def toStringIter(prefix: String): String = this match {
+    case Empty() => s"${prefix})"
+    case Cell(h, t) => t.toStringIter(s"${prefix}${h} ")
+  }
 }
 
-final class Cell(val head: Int, val tail: Lst) extends Lst {
-  override def isEmpty = false
-
-  // Not tailrec!
-  override def map(f: Int => Int) = {
-    new Cell(f(head), tail.map(f))
-  }
-
-  // Not tailrec!
-  override def toStringIter(prefix: String) =
-    tail.toStringIter(s"${prefix}${head} ")
+final case class Cell(head: Int, tail: Lst) extends Lst {
+  override val isEmpty = false
 }
 
-final class Empty extends Lst {
-  override def head = throw new RuntimeException("Empty.head not allowed")
-
-  override def tail = throw new RuntimeException("Empty.tail not allowed")
-
-  override def isEmpty = true
-
-  override def map(f: Int => Int) = {
-    this
-  }
-
-  override def toStringIter(prefix: String): String = s"${prefix})"
+final case class Empty() extends Lst {
+  override val isEmpty = true
 }

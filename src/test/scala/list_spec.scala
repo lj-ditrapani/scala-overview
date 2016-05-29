@@ -2,23 +2,21 @@ package info.ditrapani.overview
 
 class ListSpec extends Spec {
   describe("Lst") {
-    val list: Lst = new Cell(1, new Cell(2, new Cell(3, new Empty)))
+    val list: Lst = Cell(1, Cell(2, Cell(3, Empty())))
 
     it("can be empty") {
-      val e: Lst = new Empty
+      val e: Lst = Empty()
     }
 
     it("can hold elements") {
       list.isEmpty should === (false)
-      list.head should === (1)
-      list.tail.head should === (2)
-      list.tail.tail.head should === (3)
-      list.tail.tail.tail.isEmpty should === (true)
+      list.size should === (3)
+      list.toString === ("List( 1 2 3 )")
     }
 
     describe("map") {
       it("returns empty list on empty list") {
-        (new Empty).map(_ + 5).isEmpty should === (true)
+        (Empty()).map(_ + 5).isEmpty should === (true)
       }
 
       it("applies function to each element in list") {
@@ -35,7 +33,7 @@ class ListSpec extends Spec {
       }
 
       it("reduces the list with *") {
-        val i = new Cell(4, list).reduce(1)(_ * _)
+        val i = Cell(4, list).reduce(1)(_ * _)
         i should === (24)
       }
     }
@@ -52,7 +50,7 @@ class ListSpec extends Spec {
       }
 
       it("returns a string representation of the empty list") {
-        (new Empty).toString should === ("Lst( )")
+        (Empty()).toString should === ("Lst( )")
       }
     }
   }
