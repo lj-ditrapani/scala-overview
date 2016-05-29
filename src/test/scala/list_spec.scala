@@ -2,10 +2,10 @@ package info.ditrapani.overview
 
 class ListSpec extends Spec {
   describe("Lst") {
-    val list: Lst = Cell(1, Cell(2, Cell(3, Empty())))
+    val list: Lst[Int] = Cell(1, Cell(2, Cell(3, Empty())))
 
     it("can be empty") {
-      val e: Lst = Empty()
+      val e: Lst[Int] = Empty()
     }
 
     it("can hold elements") {
@@ -16,7 +16,7 @@ class ListSpec extends Spec {
 
     describe("map") {
       it("returns empty list on empty list") {
-        (Empty()).map(_ + 5).isEmpty should === (true)
+        (Empty(): Lst[Int]).map(_ + 5).isEmpty should === (true)
       }
 
       it("applies function to each element in list") {
@@ -58,6 +58,18 @@ class ListSpec extends Spec {
       it("returns a string representation of the empty list") {
         (Empty()).toString should === ("Lst( )")
       }
+    }
+  }
+
+  describe("Lst of chars") {
+    val list: Lst[Char] =
+      Cell('s', Cell('c', Cell('a', Cell('l', Cell('a', Empty())))))
+
+    it("still works") {
+      list.size should === (5)
+      list.toString should === ("Lst( s c a l a )")
+      list.reverse.toString should === ("Lst( a l a c s )")
+      list.map(_.toInt - 96).toString should === ("Lst( 19 3 1 12 1 )")
     }
   }
 }

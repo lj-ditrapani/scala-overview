@@ -2,18 +2,18 @@ package info.ditrapani.overview
 
 import scala.annotation.tailrec
 
-sealed abstract class Lst {
+sealed abstract class Lst[A] {
   def isEmpty: Boolean
 
-  def map(f: Int => Int): Lst =
-    reverse.reduce(Empty(): Lst)((acc, e) => Cell(f(e), acc))
+  def map[B](f: A => B): Lst[B] =
+    reverse.reduce(Empty(): Lst[B])((acc, e) => Cell(f(e), acc))
 
-  @tailrec def reduce[B](zero: B)(f: (B, Int) => B): B = this match {
+  @tailrec def reduce[B](zero: B)(f: (B, A) => B): B = this match {
     case Empty() => zero
     case Cell(h, t) => t.reduce(f(zero, h))(f)
   }
 
-  def reverse: Lst = reduce(Empty(): Lst)((acc, e) => Cell(e, acc))
+  def reverse: Lst[A] = reduce(Empty(): Lst[A])((acc, e) => Cell(e, acc))
 
   def size: Int = reduce(0)((acc, i) => acc + 1)
 
@@ -21,10 +21,10 @@ sealed abstract class Lst {
     reduce("Lst( ")((acc, i) => s"${acc}${i} ") + ")"
 }
 
-final case class Cell(head: Int, tail: Lst) extends Lst {
+final case class Cell[A](head: A, tail: Lst[A]) extends Lst[A] {
   override val isEmpty = false
 }
 
-final case class Empty() extends Lst {
+final case class Empty[A]() extends Lst[A] {
   override val isEmpty = true
 }
