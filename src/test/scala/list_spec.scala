@@ -28,6 +28,18 @@ class ListSpec extends Spec {
       }
     }
 
+    describe("reduce") {
+      it("reduces the list with +") {
+        val i = list.reduce(0)(_ + _)
+        i should === (6)
+      }
+
+      it("reduces the list with *") {
+        val i = new Cell(4, list).reduce(1)(_ * _)
+        i should === (24)
+      }
+    }
+
     describe("size") {
       it("returns size of list") {
         list.size should === (3)
@@ -37,6 +49,10 @@ class ListSpec extends Spec {
     describe("toString") {
       it("returns a string representation of the list") {
         list.toString should === ("Lst( 1 2 3 )")
+      }
+
+      it("returns a string representation of the empty list") {
+        (new Empty).toString should === ("Lst( )")
       }
     }
   }

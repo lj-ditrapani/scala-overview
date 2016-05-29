@@ -12,7 +12,13 @@ sealed abstract class Lst {
 
   def map(f: Int => Int): Lst
 
-  // def reduce(f: (Int, Int) => Int): Int
+  @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int = {
+    if (isEmpty) {
+      zero
+    } else {
+      tail.reduce(f(zero, head))(f)
+    }
+  }
 
   def size: Int = sizeIter(0)
 
