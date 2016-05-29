@@ -36,6 +36,12 @@ class ListSpec extends Spec {
         val i = Cell(4, list).reduce(1)(_ * _)
         i should === (24)
       }
+
+      it("reduces the list to a string") {
+        def joiner(acc: String, i: Int): String = s"${acc} ${i}"
+        val s = Cell(4, list).reduce("Lst:")(joiner)
+        s should === ("Lst: 4 1 2 3")
+      }
     }
 
     describe("size") {

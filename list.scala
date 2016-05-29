@@ -12,7 +12,7 @@ sealed abstract class Lst {
     case Cell(h, t) => t.mapIter(Cell(f(h), acc), f)
   }
 
-  @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int = this match {
+  @tailrec def reduce[B](zero: B)(f: (B, Int) => B): B = this match {
     case Empty() => zero
     case Cell(h, t) => t.reduce(f(zero, h))(f)
   }
