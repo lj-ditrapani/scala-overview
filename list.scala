@@ -13,20 +13,18 @@ sealed abstract class Lst {
   def map(f: Int => Int): Lst
 
   @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int = {
-    if (isEmpty) {
-      zero
-    } else {
-      tail.reduce(f(zero, head))(f)
+    this match {
+      case x: Empty => zero
+      case x: Cell => tail.reduce(f(zero, head))(f)
     }
   }
 
   def size: Int = sizeIter(0)
 
   @tailrec private def sizeIter(n: Int): Int = {
-    if (isEmpty) {
-      n
-    } else {
-      tail.sizeIter(n + 1)
+    this match {
+      case x: Empty => n
+      case x: Cell => tail.sizeIter(n + 1)
     }
   }
 
