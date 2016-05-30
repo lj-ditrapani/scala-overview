@@ -1,3 +1,12 @@
+package info.ditrapani.overview
+
 object Main {
-  def main(args: Array[String]) = println("Hi world!")
+  def main(args: Array[String]) = {
+    val list = Lst("Hello world from scala!".toCharArray: _*)
+    println(list.toString)
+    println(s"List size: ${list.size}")
+    val list2 = list.map((x) => Integer.toHexString(x.toInt))
+    println(s"List as ASCII values: ${list2}")
+    println(s"Reversed list: ${list.reverse}")
+  }
 }
