@@ -14,6 +14,7 @@ Cost of typed language
 - Extra wordiness of types
 - Optimized for maintainability/readability over write-ability
 - 'noise' of types
+- Almost like 2 languages; the runtime semantics & the type system
 
 
 Benefit
@@ -21,6 +22,8 @@ Benefit
 - maintainability
 - readability (types are documentation)
 - performance (not true with TypeScript)
+- Don't need tests to check that you implemented the interface correctly
+- Don't need tests to check that you are using the interface correctly
 
 
 FP
