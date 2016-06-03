@@ -7,7 +7,7 @@ sealed abstract class Lst {
 
   def map(f: Int => Int): Lst = reverse.mapIter(Empty(), f)
 
-  def mapIter(acc: Lst, f: Int => Int): Lst = this match {
+  @tailrec def mapIter(acc: Lst, f: Int => Int): Lst = this match {
     case Empty() => acc
     case Cell(h, t) => t.mapIter(Cell(f(h), acc), f)
   }
