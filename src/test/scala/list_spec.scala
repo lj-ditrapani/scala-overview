@@ -11,7 +11,7 @@ class ListSpec extends Spec {
     it("can hold elements") {
       list.isEmpty should === (false)
       list.size should === (3)
-      list.toString === ("List( 1 2 3 )")
+      list.toString should === ("List( 1 2 3 )")
     }
 
     describe("map") {
