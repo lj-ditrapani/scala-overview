@@ -152,7 +152,7 @@ code
 - apply to make Lst a function (lines 24-27)
 - varargs with *
 - apply is parameterized on type A
-- much nice list constructor
+- much nicer list constructor
 
 tests
 - use new Lst constructor in test code
@@ -165,7 +165,8 @@ Wrapping up
 - Splat sequence collection with `_*`
 - run assembly in sbt; can now run resulting,
   self-contained jar on any jvm, Java 6 or later
-- Option, Try, Either has similar implementations (case classes, pattern-matching, type covariance)
+- Option, Try, Either have similar implementations
+  (case classes, pattern-matching, type covariance)
 
 
 Going further
@@ -199,4 +200,4 @@ Tutorial (from shallow to more in depth):
 You can decompile your .class files that scalac emits with javap (partial)
 or cfr_0_115.jar (complete) or some other java decompiler.
 
-Coursera has 3 brand-new scala courses available.
+Coursera has 3 brand-new scala courses available (2016).
