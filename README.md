@@ -198,6 +198,8 @@ Tutorial (from shallow to more in depth):
 - <http://docs.scala-lang.org/tutorials/tour/tour-of-scala>
 
 You can decompile your .class files that scalac emits with javap (partial)
-or cfr_0_115.jar (complete) or some other java decompiler.
+or cfr_0_121.jar (complete) or some other java decompiler.
+
+- CFR - another java decompiler <http://www.benf.org/other/cfr/> 
 
 Coursera has 3 brand-new scala courses available (2016).
