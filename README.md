@@ -98,7 +98,7 @@ tests
 - Use of apply method
 
 
-6-type-classes-1
+6-type-parameters-1
 ----------------
 Reduce is way too restrictive.  Let's make it more generic.
 
