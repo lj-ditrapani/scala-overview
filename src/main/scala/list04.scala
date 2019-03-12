@@ -14,8 +14,8 @@ sealed abstract class Lst {
 
   @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int = {
     this match {
-      case x: Empty => zero
-      case x: Cell => tail.reduce(f(zero, head))(f)
+      case _: Empty => zero
+      case _: Cell => tail.reduce(f(zero, head))(f)
     }
   }
 
@@ -23,8 +23,8 @@ sealed abstract class Lst {
 
   @tailrec private def sizeIter(n: Int): Int = {
     this match {
-      case x: Empty => n
-      case x: Cell => tail.sizeIter(n + 1)
+      case _: Empty => n
+      case _: Cell => tail.sizeIter(n + 1)
     }
   }
 
@@ -47,9 +47,9 @@ final class Cell(val head: Int, val tail: Lst) extends Lst {
 }
 
 final class Empty extends Lst {
-  override def head = throw new RuntimeException("Empty.head not allowed")
+  override def head: Int = throw new RuntimeException("Empty.head not allowed")
 
-  override def tail = throw new RuntimeException("Empty.tail not allowed")
+  override def tail: Lst = throw new RuntimeException("Empty.tail not allowed")
 
   override def isEmpty = true
 

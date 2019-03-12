@@ -7,7 +7,7 @@ sealed abstract class Lst {
 
   def map(f: Int => Int): Lst = reverse.mapIter(Empty(), f)
 
-  def mapIter(acc: Lst, f: Int => Int): Lst = this match {
+  @tailrec def mapIter(acc: Lst, f: Int => Int): Lst = this match {
     case Empty() => acc
     case Cell(h, t) => t.mapIter(Cell(f(h), acc), f)
   }
@@ -28,7 +28,7 @@ sealed abstract class Lst {
 
   @tailrec private def sizeIter(n: Int): Int = this match {
     case Empty() => n
-    case Cell(h, t) => t.sizeIter(n + 1)
+    case Cell(_, t) => t.sizeIter(n + 1)
   }
 
   override def toString(): String = toStringIter("Lst( ")

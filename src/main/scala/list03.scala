@@ -49,9 +49,9 @@ final class Cell(val head: Int, val tail: Lst) extends Lst {
 }
 
 final class Empty extends Lst {
-  override def head = throw new RuntimeException("Empty.head not allowed")
+  override def head: Int = throw new RuntimeException("Empty.head not allowed")
 
-  override def tail = throw new RuntimeException("Empty.tail not allowed")
+  override def tail: Lst = throw new RuntimeException("Empty.tail not allowed")
 
   override def isEmpty = true
 

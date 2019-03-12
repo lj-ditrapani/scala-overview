@@ -15,7 +15,7 @@ sealed abstract class Lst {
 
   def reverse: Lst = reduce(Empty(): Lst)((acc, e) => Cell(e, acc))
 
-  def size: Int = reduce(0)((acc, i) => acc + 1)
+  def size: Int = reduce(0)((acc, _) => acc + 1)
 
   override def toString(): String =
     reduce("Lst( ")((acc, i) => s"${acc}${i} ") + ")"

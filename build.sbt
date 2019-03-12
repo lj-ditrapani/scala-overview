@@ -24,7 +24,9 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.6" % "test"
 
 wartremoverWarnings ++= Warts.allBut(
   Wart.Equals,
-  Wart.NonUnitStatements
+  Wart.NonUnitStatements,
+  Wart.Throw,
+  Wart.AsInstanceOf
 )
 
 scalafmtOnCompile in ThisBuild := true

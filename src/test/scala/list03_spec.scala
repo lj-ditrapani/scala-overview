@@ -8,6 +8,7 @@ class List03Spec extends Spec {
 
     it("can be empty") {
       val e: Lst = new Empty
+      e shouldBe an[Empty]
     }
 
     it("can hold elements") {

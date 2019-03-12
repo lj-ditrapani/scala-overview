@@ -8,6 +8,7 @@ class List08Spec extends Spec {
 
     it("can be empty") {
       val e: Lst[Int] = Empty()
+      e shouldBe Empty[Int]()
     }
 
     it("can hold elements") {
@@ -58,7 +59,7 @@ class List08Spec extends Spec {
       }
 
       it("returns a string representation of the empty list") {
-        (Empty()).toString should ===("Lst( )")
+        (Empty[Int]()).toString should ===("Lst( )")
       }
     }
   }
