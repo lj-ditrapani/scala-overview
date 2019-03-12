@@ -1,12 +1,16 @@
 Scala Overview
 ==============
 
-This repo has 10 numbered branches.
+This overview has 10 stages.
+Each stage has corresponding `src/main/listXX.scala`
+and `src/test/listXX_spec.scala` files.
 
-1. Current branch = 1
-2. Checkout current branch, talk about the code, run the tests.
-3. Current branch = Current branch + 1
-4. Go to step 2 unless Current branch > 10
+1. XX = 01
+2. Open `listXX.scala` and `listXX_spec.scala`,
+3. Talk about the code.
+4. Run the tests `sbt testOnly *ListXXSpec`
+5. XX = XX + 1
+6. Go to step 2 unless XX > 10
 
 
 Cost of typed language
@@ -72,6 +76,7 @@ tests
 code
 - new methods: map, reduce, size, toString
 - tailrec
+- curry
 
 tests
 - new tests for new methods
@@ -163,8 +168,9 @@ Wrapping up
 
 - Look at main.scala
 - Splat sequence collection with `_*`
-- run assembly in sbt; can now run resulting,
-  self-contained jar on any jvm, Java 6 or later
+- run `sbt assembly`; can now run resulting,
+  self-contained jar on any jvm, Java 6 or later.
+  `java -jar target/scala-2.12/scala-overview-assembly-0.1.jar`.
 - Option, Try, Either have similar implementations
   (case classes, pattern-matching, type covariance)
 
