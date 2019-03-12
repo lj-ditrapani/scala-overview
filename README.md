@@ -7,7 +7,7 @@ and `src/test/listXX_spec.scala` files.
 
 1. XX = 01
 2. Open `listXX.scala` and `listXX_spec.scala`,
-3. Talk about the code.
+3. Talk about the code; notes for each stage below.
 4. Run the tests `sbt testOnly *ListXXSpec`
 5. XX = XX + 1
 6. Go to step 2 unless XX > 10
