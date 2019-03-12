@@ -3,7 +3,28 @@ lazy val root = (project in file(".")).
     name := "scala-overview",
     version := "0.1",
     scalaVersion := "2.12.8",
-    organization := "ditrapani.info"
+    organization := "info.ditrapani"
   )
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-encoding",
+  "UTF-8",
+  "-unchecked",
+  "-Xlint",
+  "-Ypartial-unification",
+  "-Ywarn-dead-code",
+  "-Ywarn-numeric-widen",
+  "-Ywarn-unused",
+  "-Ywarn-value-discard",
+  "-Xfuture"
+)
+
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.6" % "test"
+
+wartremoverWarnings ++= Warts.allBut(
+  Wart.Equals,
+  Wart.NonUnitStatements
+)
+
+scalafmtOnCompile in ThisBuild := true
