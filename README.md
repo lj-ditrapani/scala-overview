@@ -177,24 +177,23 @@ Wrapping up
 
 Going further
 -------------
+
 List documentation
-- List <http://www.scala-lang.org/api/2.11.8/#scala.collection.immutable.List>
-  sealed abstract class List[+A]
-- <http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.$colon$colon>
-  final case class ::[B](head: B, tl: List[B]) extends List[B]
-- <http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Nil$>
-  object Nil extends List[Nothing]
-
-:: & Nil are subclasses of List
-
-:: reads as the 'cons' operator
-
-Blog post with similar ideas:
-<http://underscore.io/blog/posts/2015/06/02/everything-about-sealed.html>
+- List <https://www.scala-lang.org/api/current/scala/collection/immutable/List.html>
+  `sealed abstract class List[+A]`
+- <https://www.scala-lang.org/api/current/scala/collection/immutable/$colon$colon.html>
+  `final case class ::[B](head: B, tl: List[B]) extends List[B]`
+- <https://www.scala-lang.org/api/current/scala/collection/immutable/Nil$.html>
+  `object Nil extends List[Nothing]`
+- :: & Nil are subclasses of List
+- :: reads as the 'cons' operator
+- Blog post with similar ideas:
+  <http://underscore.io/blog/posts/2015/06/02/everything-about-sealed.html>
 
 
 Resources
 ---------
+
 Types:
 <http://docs.scala-lang.org/tutorials/tour/unified-types.html>
 
@@ -208,4 +207,10 @@ or cfr_0_121.jar (complete) or some other java decompiler.
 
 - CFR - another java decompiler <http://www.benf.org/other/cfr/> 
 
-Coursera has 3 brand-new scala courses available (2016).
+Coursera has 3 scala courses available.
+
+<https://exercism.io> has a scala track.
+
+There are lots of scala books available. I recommend:
+- Scala for the Impatient (Cay S. Horstmann) -- Gentle overview
+- Programming in Scala (Martin Odersky) -- Deep dive
