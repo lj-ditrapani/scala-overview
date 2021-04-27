@@ -8,10 +8,11 @@ sealed abstract class Lst {
   def map(f: Int => Int): Lst =
     reverse.reduce(Empty(): Lst)((acc, e) => Cell(f(e), acc))
 
-  @tailrec def reduce[B](zero: B)(f: (B, Int) => B): B = this match {
-    case Empty() => zero
-    case Cell(h, t) => t.reduce(f(zero, h))(f)
-  }
+  @tailrec def reduce[B](zero: B)(f: (B, Int) => B): B =
+    this match {
+      case Empty() => zero
+      case Cell(h, t) => t.reduce(f(zero, h))(f)
+    }
 
   def reverse: Lst = reduce(Empty(): Lst)((acc, e) => Cell(e, acc))
 
