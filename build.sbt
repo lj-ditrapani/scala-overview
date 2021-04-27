@@ -28,4 +28,4 @@ wartremoverWarnings ++= Warts.allBut(
   Wart.StringPlusAny,
 )
 
-scalafmtOnCompile in ThisBuild := true
+ThisBuild / scalafmtOnCompile := true
