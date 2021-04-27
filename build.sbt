@@ -21,6 +21,7 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.6" % "test"
+// libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.7" % "test"
 
 wartremoverWarnings ++= Warts.allBut(
   Wart.Equals,
