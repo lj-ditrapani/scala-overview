@@ -7,13 +7,13 @@ sealed abstract class Lst {
 
   def map(f: Int => Int): Lst = reverse.mapIter(Empty(), f)
 
-  @tailrec def mapIter(acc: Lst, f: Int => Int): Lst =
+  @tailrec final def mapIter(acc: Lst, f: Int => Int): Lst =
     this match {
       case Empty() => acc
       case Cell(h, t) => t.mapIter(Cell(f(h), acc), f)
     }
 
-  @tailrec def reduce(zero: Int)(f: (Int, Int) => Int): Int =
+  @tailrec final def reduce(zero: Int)(f: (Int, Int) => Int): Int =
     this match {
       case Empty() => zero
       case Cell(h, t) => t.reduce(f(zero, h))(f)
@@ -21,7 +21,7 @@ sealed abstract class Lst {
 
   def reverse: Lst = reverseIter(Empty())
 
-  @tailrec def reverseIter(acc: Lst): Lst =
+  @tailrec final def reverseIter(acc: Lst): Lst =
     this match {
       case Empty() => acc
       case Cell(h, t) => t.reverseIter(Cell(h, acc))
@@ -37,7 +37,7 @@ sealed abstract class Lst {
 
   override def toString(): String = toStringIter("Lst( ")
 
-  @tailrec def toStringIter(prefix: String): String =
+  @tailrec final def toStringIter(prefix: String): String =
     this match {
       case Empty() => s"${prefix})"
       case Cell(h, t) => t.toStringIter(s"${prefix}${h} ")
