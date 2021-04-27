@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     name := "scala-overview",
     version := "0.1",
-    scalaVersion := "2.13.5",
+    scalaVersion := "3.0.0-RC3",
     organization := "info.ditrapani"
   )
 
@@ -11,15 +11,12 @@ scalacOptions ++= Seq(
   "-encoding",
   "UTF-8",
   "-unchecked",
-  "-Xlint",
-  "-Ywarn-dead-code",
-  "-Ywarn-numeric-widen",
-  "-Ywarn-unused",
-  "-Ywarn-value-discard",
 )
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.7" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.8" % "test"
 
+// Need to find a way to make wartremover work with scala 3 or find an alternative
+/*
 wartremoverWarnings ++= Warts.allBut(
   Wart.Equals,
   Wart.NonUnitStatements,
@@ -27,5 +24,6 @@ wartremoverWarnings ++= Warts.allBut(
   Wart.AsInstanceOf,
   Wart.StringPlusAny,
 )
+*/
 
 ThisBuild / scalafmtOnCompile := true
