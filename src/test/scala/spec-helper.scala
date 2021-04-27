@@ -1,5 +1,6 @@
 package info.ditrapani.overview
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-abstract class Spec extends FunSpec with Matchers
+abstract class Spec extends AnyFunSpec with Matchers
