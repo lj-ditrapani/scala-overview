@@ -7,12 +7,14 @@ lazy val root = project
         version := "0.1",
         scalaVersion := "3.1.2",
         organization := "info.ditrapani",
+        maintainer := "lj-ditrapani",
         scalacOptions := compilerOptions,
         libraryDependencies ++= Seq(
           dependencies.scalaTest,
           dependencies.scalaTestFreespec,
         )
     )
+    .enablePlugins(JavaAppPackaging)
 
 
 lazy val compilerOptions =

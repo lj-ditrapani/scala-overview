@@ -168,11 +168,15 @@ Wrapping up
 
 - Look at main.scala
 - Splat sequence collection with `_*`
-- run `sbt assembly`; can now run resulting,
-  self-contained jar on any jvm, Java 6 or later.
-  `java -jar target/scala-2.12/scala-overview-assembly-0.1.jar`.
 - Option, Try, Either have similar implementations
   (case classes, pattern-matching, type covariance)
+
+Deploying:
+
+- run `sbt stage`; this stages the package which you can run
+  directly with `target/universal/stage/bin/scala-overview`
+- run `sbt Universal / packageBin`, this generates a zip artifact
+  packaged here: `target/universal/scala-overview-<version>.zip`
 
 
 Going further
