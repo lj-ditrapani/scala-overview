@@ -171,12 +171,26 @@ Wrapping up
 - Option, Try, Either have similar implementations
   (case classes, pattern-matching, type covariance)
 
+Develop:
+
+Start sbt console with `sbt`.
+From sbt console you can run these useful commands while you develop:
+
+    compile
+    test
+    run
+    fmt
+
 Deploying:
 
 - run `sbt stage`; this stages the package which you can run
   directly with `target/universal/stage/bin/scala-overview`
 - run `sbt Universal / packageBin`, this generates a zip artifact
   packaged here: `target/universal/scala-overview-<version>.zip`
+
+Dependencies:
+
+- check for outdated dependencies with `sbt dependencyUpdates`
 
 
 Going further
