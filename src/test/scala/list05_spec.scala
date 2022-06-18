@@ -2,7 +2,7 @@ package info.ditrapani.overview05
 
 import info.ditrapani.overview.Spec
 
-class List05Spec extends Spec {
+class List05Spec extends Spec:
   "Lst" - {
     val list: Lst = Cell(1, Cell(2, Cell(3, Empty())))
 
@@ -57,4 +57,3 @@ class List05Spec extends Spec {
       }
     }
   }
-}

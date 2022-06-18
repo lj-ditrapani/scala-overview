@@ -2,7 +2,7 @@ package info.ditrapani.overview01
 
 import info.ditrapani.overview.Spec
 
-class List01Spec extends Spec {
+class List01Spec extends Spec:
   "Lst" - {
     "can be empty" in {
       val e: Lst = new Empty
@@ -20,4 +20,3 @@ class List01Spec extends Spec {
       c3.tail shouldBe an[Empty]
     }
   }
-}

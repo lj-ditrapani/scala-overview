@@ -2,7 +2,7 @@ package info.ditrapani.overview10
 
 import info.ditrapani.overview.Spec
 
-class List10Spec extends Spec {
+class List10Spec extends Spec:
   "Lst" - {
     val list: Lst[Int] = Lst(1, 2, 3)
 
@@ -80,4 +80,3 @@ class List10Spec extends Spec {
       Lst(1, 2, 3).toString should ===("Lst( 1 2 3 )")
     }
   }
-}

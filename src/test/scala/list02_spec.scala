@@ -2,7 +2,7 @@ package info.ditrapani.overview02
 
 import info.ditrapani.overview.Spec
 
-class List02Spec extends Spec {
+class List02Spec extends Spec:
   "Lst" - {
     "can be empty" in {
       val e: Lst = new Empty
@@ -18,4 +18,3 @@ class List02Spec extends Spec {
       list.tail.tail.tail.isEmpty should ===(true)
     }
   }
-}
