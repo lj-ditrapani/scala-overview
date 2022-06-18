@@ -3,13 +3,13 @@ package info.ditrapani.overview01
 import info.ditrapani.overview.Spec
 
 class List01Spec extends Spec {
-  describe("Lst") {
-    it("can be empty") {
+  "Lst" - {
+    "can be empty" in {
       val e: Lst = new Empty
       e shouldBe an[Empty]
     }
 
-    it("can hold elements") {
+    "can hold elements" in {
       val list: Lst = new Cell(1, new Cell(2, new Cell(3, new Empty)))
       val c1: Cell = list.asInstanceOf[Cell]
       c1.head should ===(1)

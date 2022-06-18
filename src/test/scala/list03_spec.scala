@@ -3,15 +3,15 @@ package info.ditrapani.overview03
 import info.ditrapani.overview.Spec
 
 class List03Spec extends Spec {
-  describe("Lst") {
+  "Lst" - {
     val list: Lst = new Cell(1, new Cell(2, new Cell(3, new Empty)))
 
-    it("can be empty") {
+    "can be empty" in {
       val e: Lst = new Empty
       e shouldBe an[Empty]
     }
 
-    it("can hold elements") {
+    "can hold elements" in {
       list.isEmpty should ===(false)
       list.head should ===(1)
       list.tail.head should ===(2)
@@ -19,42 +19,42 @@ class List03Spec extends Spec {
       list.tail.tail.tail.isEmpty should ===(true)
     }
 
-    describe("map") {
-      it("returns empty list on empty list") {
+    "map" - {
+      "returns empty list on empty list" in {
         (new Empty).map(_ + 5).isEmpty should ===(true)
       }
 
-      it("applies function to each element in list") {
+      "applies function to each element in list" in {
         val list2 = list.map(_ * 2)
         list2.size should ===(3)
         list2.toString should ===("Lst( 2 4 6 )")
       }
     }
 
-    describe("reduce") {
-      it("reduces the list with +") {
+    "reduce" - {
+      "reduces the list with +" in {
         val i = list.reduce(0)(_ + _)
         i should ===(6)
       }
 
-      it("reduces the list with *") {
+      "reduces the list with *" in {
         val i = new Cell(4, list).reduce(1)(_ * _)
         i should ===(24)
       }
     }
 
-    describe("size") {
-      it("returns size of list") {
+    "size" - {
+      "returns size of list" in {
         list.size should ===(3)
       }
     }
 
-    describe("toString") {
-      it("returns a string representation of the list") {
+    "toString" - {
+      "returns a string representation of the list" in {
         list.toString should ===("Lst( 1 2 3 )")
       }
 
-      it("returns a string representation of the empty list") {
+      "returns a string representation of the empty list" in {
         (new Empty).toString should ===("Lst( )")
       }
     }
