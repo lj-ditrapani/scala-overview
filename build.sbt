@@ -25,8 +25,8 @@ lazy val compilerOptions =
     "-unchecked",
     "-Yexplicit-nulls",
     "-Ysafe-init",
-    // "-new-syntax",
-    // "-indent",
+    "-new-syntax",
+    "-indent",
     // "-rewrite",
   )
 
