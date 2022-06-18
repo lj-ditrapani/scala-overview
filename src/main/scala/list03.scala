@@ -13,18 +13,14 @@ sealed abstract class Lst:
   def map(f: Int => Int): Lst
 
   @tailrec final def reduce(zero: Int)(f: (Int, Int) => Int): Int =
-    if isEmpty then
-      zero
-    else
-      tail.reduce(f(zero, head))(f)
+    if isEmpty then zero
+    else tail.reduce(f(zero, head))(f)
 
   def size: Int = sizeIter(0)
 
   @tailrec private def sizeIter(n: Int): Int =
-    if isEmpty then
-      n
-    else
-      tail.sizeIter(n + 1)
+    if isEmpty then n
+    else tail.sizeIter(n + 1)
 
   override def toString(): String = toStringIter("Lst( ")
 
