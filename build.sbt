@@ -16,7 +16,6 @@ lazy val root = project
     )
     .enablePlugins(JavaAppPackaging)
 
-
 lazy val compilerOptions =
   Seq(
     "-deprecation",
@@ -29,7 +28,6 @@ lazy val compilerOptions =
     "-indent",
     // "-rewrite",
   )
-
 
 lazy val dependencies =
   new {
