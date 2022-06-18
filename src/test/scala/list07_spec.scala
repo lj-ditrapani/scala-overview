@@ -3,6 +3,8 @@ package info.ditrapani.overview07
 import info.ditrapani.overview.Spec
 
 class List07Spec extends Spec:
+  import Lst.{Cell, Empty}
+
   "Lst" - {
     val list: Lst = Cell(1, Cell(2, Cell(3, Empty())))
 

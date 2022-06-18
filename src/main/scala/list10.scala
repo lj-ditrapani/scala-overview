@@ -2,8 +2,14 @@ package info.ditrapani.overview10
 
 import scala.annotation.tailrec
 
-sealed abstract class Lst[+A]:
-  def isEmpty: Boolean
+enum Lst[+A]:
+  case Cell[A](head: A, tail: Lst[A]) extends Lst[A]
+  case Empty extends Lst[Nothing]
+
+  def isEmpty: Boolean =
+    this match
+      case Empty => true
+      case _: Cell[_] => false
 
   def map[B](f: A => B): Lst[B] =
     reverse.reduce(Empty: Lst[B])((acc, e) => Cell(f(e), acc))
@@ -23,9 +29,3 @@ sealed abstract class Lst[+A]:
 object Lst:
   def apply[A](seq: A*): Lst[A] =
     seq.reverse.foldLeft(Empty: Lst[A])((acc, e) => Cell(e, acc))
-
-final case class Cell[A](head: A, tail: Lst[A]) extends Lst[A]:
-  override val isEmpty = false
-
-object Empty extends Lst[Nothing]:
-  override val isEmpty = true

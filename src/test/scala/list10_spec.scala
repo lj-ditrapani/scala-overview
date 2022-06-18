@@ -3,6 +3,8 @@ package info.ditrapani.overview10
 import info.ditrapani.overview.Spec
 
 class List10Spec extends Spec:
+  import Lst.{Cell, Empty}
+
   "Lst" - {
     val list: Lst[Int] = Lst(1, 2, 3)
 
