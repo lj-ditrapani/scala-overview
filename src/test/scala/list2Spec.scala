@@ -1,9 +1,9 @@
-package info.ditrapani.overview04
+package info.ditrapani.overview2
 
 import info.ditrapani.overview.Spec
 import Lst.{Cell, Empty}
 
-class List04Spec extends Spec:
+class List2Spec extends Spec:
   "Lst" - {
     val list: Lst = new Cell(1, new Cell(2, new Cell(3, Empty)))
 

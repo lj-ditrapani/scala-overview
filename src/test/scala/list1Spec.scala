@@ -1,9 +1,9 @@
-package info.ditrapani.overview01
+package info.ditrapani.overview1
 
 import info.ditrapani.overview.Spec
 import Lst.{Cell, Empty}
 
-class List01Spec extends Spec:
+class List1Spec extends Spec:
   "Lst" - {
     "can be empty" in {
       val e: Lst = Empty

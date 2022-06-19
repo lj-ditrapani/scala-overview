@@ -1,10 +1,9 @@
-package info.ditrapani.overview09
+package info.ditrapani.overview7
 
 import info.ditrapani.overview.Spec
+import Lst.{Cell, Empty}
 
-class List09Spec extends Spec:
-  import Lst.{Cell, Empty}
-
+class List7Spec extends Spec:
   "Lst" - {
     val list: Lst[Int] = Cell(1, Cell(2, Cell(3, Empty)))
 
