@@ -4,7 +4,6 @@ import info.ditrapani.overview.Spec
 import Lst.{Cell, Empty}
 
 class List6Spec extends Spec:
-
   "Lst" - {
     val list: Lst[Int] = Cell(1, Cell(2, Cell(3, Empty())))
 

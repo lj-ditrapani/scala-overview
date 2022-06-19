@@ -45,7 +45,7 @@ and type parameters.
 Show box/pointer diagram of list object on white board.
 
 
-1-no-case-class
+1-enum
 ---------------
 code
 - packages like java
@@ -62,51 +62,37 @@ tests
 Don't want to type cast to call head/tail.
 
 
-2-interface-methods
+2-methods
 -------------------
 code
-- head/tail/isEmpty abstract methods
+- new methods: isEmpty, map, reduce, size, toString
+- tailrec
+- curry
 - override
-- Ugly implementation of head/tail in Empty
+- Match
+    - on value
+    - on type
+    - destructuring
 
 tests
 - no more type casts :)
-
-
-3-more-interface-methods
-------------------------
-code
-- new methods: map, reduce, size, toString
-- tailrec
-- curry
-
-tests
 - new tests for new methods
 - lambda function
 - underscore in lambda function
 
 
-4-pattern-match
----------------
-code
-- Match on type
-
-
-5-case-classes
+3-case-classes
 --------------
 code
-- no val in parameters; yet still public attributes
-- free apply method
-- free unapply in pattern matches
-- free toString & copy & == & hash
+- enum cases are case classes
+    - free apply method
+    - free unapply in pattern matches
+    - free toString & copy & == & hash
 - everything is tailrec now
 
-tests
-- Use of apply method
 
-
-6-type-parameters-1
-----------------
+4-type-parameters-1
+-------------------
 Reduce is way too restrictive.  Let's make it more generic.
 
 code
@@ -118,26 +104,26 @@ tests
 - Reducing to an Int still works the same
 
 
-7-refactor
+5-refactor
 ----------
-Re-write in terms of reduce
+Re-write methods in terms of reduce
 
 
-8-type-parameters-2
+6-type-parameters-2
 -------------------
 code
 - Lst is parameterized over type A
 - map is parameterized over type B, so f is function from A => B
 - reduce & reverse also affected
-- Line 9 reduce(Empty(): Lst[B]) the Lst[B] is required
-- Same on line 16
+- Line 15 reduce(Empty(): Lst[B]) the Lst[B] is required
+- Same on line 22
 
 tests
-- Added some generic type parameters (Lst[Int] on line 5 & 8)
-- Lines 64-74:  tests Lst[Char]
+- Added some generic type parameters (Lst[Int] on line 8 & 11)
+- Lines 68 on:  tests Lst[Char]
 
 
-9-nil-object
+7-nil-object
 ------------
 Empty should be a singleton object, not a class
 
@@ -152,7 +138,7 @@ tests
 - lose params for Empty, since no longer constructing instance.
 
 
-10-apply-with-varargs
+8-apply-with-varargs
 ---------------------
 
 code
