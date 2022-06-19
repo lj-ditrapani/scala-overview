@@ -1,7 +1,7 @@
 package info.ditrapani.overview8
 
 @main def main: Unit =
-  val list = Lst("Hello world from scala!".toIndexedSeq: _*)
+  val list = Lst("Hello world from scala!".toIndexedSeq*)
   println(list.toString)
   println(s"List size: ${list.size}")
   val list2 = list.map((x) => Integer.toHexString(x.toInt))

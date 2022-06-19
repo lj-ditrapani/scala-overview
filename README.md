@@ -157,7 +157,7 @@ Wrapping up
 -----------
 
 - Look at main.scala
-- Splat sequence collection with `_*`
+- Splat sequence collection with `*`
 - Option, Try, Either have similar implementations
   (case classes, pattern-matching, type covariance)
 
