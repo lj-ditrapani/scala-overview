@@ -1,27 +1,26 @@
 package info.ditrapani.overview04
 
 import info.ditrapani.overview.Spec
+import Lst.{Cell, Empty}
 
 class List04Spec extends Spec:
   "Lst" - {
-    val list: Lst = new Cell(1, new Cell(2, new Cell(3, new Empty)))
+    val list: Lst = new Cell(1, new Cell(2, new Cell(3, Empty)))
 
     "can be empty" in {
-      val e: Lst = new Empty
-      e shouldBe an[Empty]
+      val e: Lst = Empty
+      e shouldBe Empty
     }
 
     "can hold elements" in {
       list.isEmpty should ===(false)
-      list.head should ===(1)
-      list.tail.head should ===(2)
-      list.tail.tail.head should ===(3)
-      list.tail.tail.tail.isEmpty should ===(true)
+      list.size should ===(3)
+      list.toString should ===("Lst( 1 2 3 )")
     }
 
     "map" - {
       "returns empty list on empty list" in {
-        (new Empty).map(_ + 5).isEmpty should ===(true)
+        (Empty).map(_ + 5).isEmpty should ===(true)
       }
 
       "applies function to each element in list" in {
@@ -55,7 +54,7 @@ class List04Spec extends Spec:
       }
 
       "returns a string representation of the empty list" in {
-        (new Empty).toString should ===("Lst( )")
+        (Empty).toString should ===("Lst( )")
       }
     }
   }

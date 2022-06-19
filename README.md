@@ -50,10 +50,12 @@ Show box/pointer diagram of list object on white board.
 code
 - packages like java
 - Basic Lst of Ints class
-- Inheritance (traits vs abstract class)
+- Inheritance (Lst trait & case cases)
 
 tests
 - 'new' to create instance
+    - can be omitted for case classes
+- Empty is an Object
 - type casting :(
 - tedious list construction
 
