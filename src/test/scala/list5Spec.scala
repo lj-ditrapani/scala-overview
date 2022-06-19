@@ -5,11 +5,11 @@ import Lst.{Cell, Empty}
 
 class List5Spec extends Spec:
   "Lst" - {
-    val list: Lst = Cell(1, Cell(2, Cell(3, Empty())))
+    val list: Lst = Cell(1, Cell(2, Cell(3, Empty)))
 
     "can be empty" in {
-      val e: Lst = Empty()
-      e shouldBe an[Empty]
+      val e: Lst = Empty
+      e shouldBe Empty
     }
 
     "can hold elements" in {
@@ -20,7 +20,7 @@ class List5Spec extends Spec:
 
     "map" - {
       "returns empty list on empty list" in {
-        (Empty()).map(_ + 5).isEmpty should ===(true)
+        Empty.map(_ + 5).isEmpty should ===(true)
       }
 
       "applies function to each element in list" in {
@@ -60,7 +60,7 @@ class List5Spec extends Spec:
       }
 
       "returns a string representation of the empty list" in {
-        (Empty()).toString should ===("Lst( )")
+        Empty.toString should ===("Lst( )")
       }
     }
   }

@@ -3,8 +3,8 @@ package info.ditrapani.overview6
 import scala.annotation.tailrec
 
 enum Lst[A]:
-  case Cell[A](head: A, tail: Lst[A]) extends Lst[A]
-  case Empty[A]() extends Lst[A]
+  case Cell(head: A, tail: Lst[A])
+  case Empty()
 
   def isEmpty: Boolean =
     this match

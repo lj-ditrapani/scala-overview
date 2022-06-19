@@ -117,6 +117,8 @@ code
 - reduce & reverse also affected
 - Line 15 reduce(Empty(): Lst[B]) the Lst[B] is required
 - Same on line 22
+- Empty changed from an object to a case class
+    - We will need to fix this in next step
 
 tests
 - Added some generic type parameters (Lst[Int] on line 8 & 11)
