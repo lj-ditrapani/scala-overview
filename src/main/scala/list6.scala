@@ -1,4 +1,4 @@
-package info.ditrapani.overview08
+package info.ditrapani.overview6
 
 import scala.annotation.tailrec
 
