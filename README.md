@@ -5,12 +5,12 @@ This overview has 10 stages.
 Each stage has corresponding `src/main/listXX.scala`
 and `src/test/listXX_spec.scala` files.
 
-1. XX = 01
+1. X = 1
 2. Open `listXX.scala` and `listXX_spec.scala`,
 3. Talk about the code; notes for each stage below.
-4. Run the tests `sbt testOnly *ListXXSpec`
-5. XX = XX + 1
-6. Go to step 2 unless XX > 10
+4. Run the tests `sbt testOnly *ListXSpec`
+5. X = X + 1
+6. Go to step 2 unless X > 8
 
 
 Cost of typed language
