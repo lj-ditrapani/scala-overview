@@ -1,12 +1,12 @@
 Scala Overview
 ==============
 
-This overview has 10 stages.
+This overview has 8 stages.
 Each stage has corresponding `src/main/listXX.scala`
 and `src/test/listXX_spec.scala` files.
 
 1. X = 1
-2. Open `listXX.scala` and `listXX_spec.scala`,
+2. Open `listX.scala` and `listX_spec.scala`,
 3. Talk about the code; notes for each stage below.
 4. Run the tests `sbt testOnly *ListXSpec`
 5. X = X + 1
@@ -40,8 +40,8 @@ FP
 Intro
 -----
 We are going to build a generic list class.
-Along the way we will learn about case classes, pattern matching,
-and type parameters.
+Along the way we will learn about enums, pattern matching,
+and type parameters, ADTs.
 Show box/pointer diagram of list object on white board.
 
 
@@ -159,7 +159,7 @@ Wrapping up
 - Look at main.scala
 - Splat sequence collection with `*`
 - Option, Try, Either have similar implementations
-  (case classes, pattern-matching, type covariance)
+  (case classes/enum, pattern-matching, type covariance)
 
 Develop:
 
